@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f6f7f3;
+  --ink: #14231a;
+  --ink-muted: #55635a;
+  --ink-faint: #8a9389;
+  --seal: #1f6f4a;
+  --seal-dark: #0f2417;
+  --seal-tint: #e4efe7;
+  --flag: #b5551f;
+  --flag-tint: #f6e9e0;
+  --line: #dbd7ca;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-seal: var(--seal);
+  --color-seal-dark: var(--seal-dark);
+  --color-seal-tint: var(--seal-tint);
+  --color-flag: var(--flag);
+  --color-flag-tint: var(--flag-tint);
+  --color-line: var(--line);
+  --font-display: var(--font-fraunces);
+  --font-body: var(--font-plex-sans);
+  --font-ledger: var(--font-plex-mono);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+}
+
+.font-tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* perforated ledger-tear divider between sections */
+.perforation {
+  position: relative;
+  height: 1px;
+  background-image: radial-gradient(circle, var(--line) 1.4px, transparent 1.5px);
+  background-size: 14px 1px;
+  background-repeat: repeat-x;
+  background-position: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .stamp-enter {
+    animation: stamp-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) 0.15s both;
+  }
+  @keyframes stamp-in {
+    0% {
+      opacity: 0;
+      transform: rotate(-16deg) scale(1.4);
+    }
+    60% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 1;
+      transform: rotate(-8deg) scale(1);
+    }
+  }
+}
