@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SiteHeader } from "@/components/site-header";
 import { getRegisterStats } from "@/lib/prodap";
 
 const steps = [
@@ -37,30 +38,7 @@ export default async function Home() {
   return (
     <main className="flex-1">
       {/* NAV */}
-      <header className="border-b border-line">
-        <nav className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
-          <div className="flex items-center gap-2.5">
-            <div className="flex h-7 w-7 items-center justify-center rounded-[6px] bg-seal-dark text-[13px] font-medium text-seal-tint">
-              P
-            </div>
-            <span className="text-[15px] font-medium tracking-tight">ProDAP</span>
-          </div>
-          <div className="flex items-center gap-6 text-[13px] text-ink-muted">
-            <Link href="#how-it-works" className="hover:text-ink">
-              How it works
-            </Link>
-            <Link href="#register" className="hover:text-ink">
-              Register
-            </Link>
-            <Link
-              href="/staff/login"
-              className="rounded-[6px] bg-ink px-3.5 py-1.5 font-medium text-paper hover:bg-seal-dark"
-            >
-              Staff login
-            </Link>
-          </div>
-        </nav>
-      </header>
+      <SiteHeader />
 
       {/* HERO */}
       <section className="relative mx-auto max-w-3xl px-6 pb-14 pt-16 text-center sm:pt-20">
@@ -104,7 +82,7 @@ export default async function Home() {
 
         <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
           <Link
-            href="#register"
+            href="/register"
             className="rounded-[8px] bg-seal-dark px-6 py-3 text-[14px] font-medium text-seal-tint hover:bg-ink"
           >
             Search the register &rarr;
@@ -202,8 +180,7 @@ export default async function Home() {
             twice.
           </p>
           <Link
-            href="#register"
-            id="register"
+            href="/register"
             className="mt-6 inline-block rounded-[8px] bg-seal-tint px-6 py-3 text-[14px] font-medium text-seal-dark hover:bg-white"
           >
             Search the register now &rarr;
